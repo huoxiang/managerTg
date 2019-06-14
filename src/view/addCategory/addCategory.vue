@@ -38,7 +38,7 @@
   </div>
 </template>
 <script>
-import axios from "axios";
+import axios from 'axios';
 export default {
   data() {
     return {
@@ -101,7 +101,7 @@ export default {
     },
     async delCategory(value) {
       console.log(value);
-      let res = await axios.get('/foods/delCategory',{
+      let res = await axios.get('/apis/foods/delCategory',{
           params:{
               id:value
           }

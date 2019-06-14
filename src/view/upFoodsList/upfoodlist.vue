@@ -48,7 +48,7 @@
   </div>
 </template>
 <script>
-import axios from "axios";
+import axios from 'axios';
 
 export default {
   data() {
@@ -116,7 +116,7 @@ export default {
     },
     async up(value) {
       console.log(value);
-      let res = await axios.post("/foods/upFoods", {
+      let res = await axios.post("/apis/foods/upFoods", {
         data: this.foodsList[value]
       });
       console.log(res);

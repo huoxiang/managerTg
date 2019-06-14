@@ -113,7 +113,7 @@
 </template>
 <script>
 import OSS from "ali-oss";
-import axios from "axios";
+import axios from 'axios';
 import { VueEditor } from "vue2-editor";
 
 export default {
@@ -206,7 +206,7 @@ export default {
       }
       //富文本内容和对比价格可以为空
       //通过验证进行下一步提交到后端保存
-      let data = await axios.get('/foods/addFoods',{
+      let data = await axios.get('/apis/foods/addFoods',{
         params:{
           foodsid:this.foodsid,
           foodsName:this.foodsName,

@@ -3548,7 +3548,7 @@ define('moxie/file/FileDrop', [
 		<div id="filelist"></div>
 
 		<script type="text/javascript">
-			var fileDrop = new mOxie.FileDrop('drop_zone'), fileList = mOxie.get('filelist');
+			var fileDrop = new mOxie.FileDrop('drop_zone'), fileList = mOxie.get('/apisfilelist');
 
 			fileDrop.ondrop = function() {
 				mOxie.each(this.files, function(file) {
@@ -7970,7 +7970,7 @@ define("moxie/runtime/html5/image/JPEG", [
 
 		// extract exif info
 		_ep = new ExifParser();
-		hasExif = !!_ep.init(_hm.get('app1')[0]);
+		hasExif = !!_ep.init(_hm.get('/apisapp1')[0]);
 
 		// get dimensions
 		_info = _getDimensions.call(this);

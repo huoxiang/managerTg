@@ -27,7 +27,7 @@
   </div>
 </template>
 <script>
-import axios from 'axios'
+import axios from '../../../utils/axios'
 export default {
      data () {
        return {
@@ -43,16 +43,14 @@ export default {
      },
      methods: {
        async selectHead(value){
-         console.log('13')
-      
            console.log(value)
-           let res = await axios.get('/order/headerOrder',{
+           let res = await axios.get('/apis/order/headerOrder',{
              params:{
                headId:value
              }
            })
            console.log(res.data.data)
-          
+    
              let arr = res.data.data.map(item=>{
               return {
                 headId:item.headId,
@@ -113,7 +111,7 @@ export default {
            this.foodsList =newarr
        },
         getHeadList(){
-            axios.get('/head/allsHead').then(res=>{
+            axios.get('/apis/head/allsHead').then(res=>{
               console.log(res.data.data)
               this.headList=res.data.data
             })
@@ -121,7 +119,7 @@ export default {
         getOrderList(){
           //获取团长订单
           //先获取前十条
-          axios.get('/head/orderList',{
+          axios.get('/apis/head/orderList',{
             params:{
               start:0
             }

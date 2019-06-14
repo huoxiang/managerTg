@@ -48,7 +48,7 @@
   </div>
 </template>
 <script>
-import axios from "axios";
+import axios from 'axios';
 
 export default {
   data() {
@@ -68,7 +68,7 @@ export default {
    async searchProduct(){
       console.log('搜索')
       if(this.searchName=='') return false
-      let res = await axios.get('/foods/searchFoods',{
+      let res = await axios.get('/apis/foods/searchFoods',{
         params:{
           keyWord:this.searchName
         }
@@ -114,7 +114,7 @@ export default {
     },
    async down(value){
       console.log(value)
-      let res = await axios.post('/foods/downFoods',
+      let res = await axios.post('/apis/foods/downFoods',
       {
         data:this.foodsList[value]
       })
@@ -133,7 +133,7 @@ export default {
     couponSelected(){
       console.log('分类值发生改变')
       //发送个后端接口,并返回所得到的分类所属内容，此内容不进行分页处理
-      axios.get('/foods/categoryFoods',{
+      axios.get('/apis/foods/categoryFoods',{
         params:{
           couponSelected:this.couponSelected
         }

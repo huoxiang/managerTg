@@ -113,7 +113,7 @@
 </template>
 <script>
 import OSS from "ali-oss";
-import axios from "axios";
+import axios from 'axios';
 import { VueEditor } from "vue2-editor";
 export default {
   components: {
