@@ -47,7 +47,7 @@ export default {
       }
     },
     async getNum(){
-        let res = await axios.get('/apis/setCom/getNum')
+        let res = await axios.get('/apis/apis/setCom/getNum')
         const {status,data:{data}} = res
         this.setNum = data
     }

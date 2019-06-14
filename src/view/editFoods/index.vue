@@ -160,7 +160,7 @@ export default {
   },
   methods: {
     async setFoods() {
-      let res = await axios.get("/foods/getFoodsDetail", {
+      let res = await axios.get("/apis/foods/getFoodsDetail", {
         params: {
           id: this.$route.query.id
         }
@@ -191,7 +191,7 @@ export default {
     },
     async getCategory() {
       //获得商品分类数据
-      let res = await axios.get("/foods/getCategory");
+      let res = await axios.get("/apis/foods/getCategory");
       console.log(res);
       const {
         status,
@@ -243,7 +243,7 @@ export default {
       else{
          upimgList = this.uploadImgList
       }
-      let data = await axios.get("/foods/editFoods", {
+      let data = await axios.get("/apis/foods/editFoods", {
         params: {
           foodsid: this.foodsid,
           foodsName: this.foodsName,

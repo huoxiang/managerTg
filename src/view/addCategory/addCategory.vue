@@ -54,7 +54,7 @@ export default {
   methods: {
     async getCategory() {
       //获得商品分类数据
-      let res = await axios.get("/foods/getCategory");
+      let res = await axios.get("/apis/foods/getCategory");
       console.log(res);
       const {
         status,
@@ -78,7 +78,7 @@ export default {
         this.$message("未填写分类排序id");
         return false;
       }
-      let res = await axios.get("/foods/addCategory", {
+      let res = await axios.get("/apis/foods/addCategory", {
         params: {
           name: this.categoryName,
           id: this.categoryId,
@@ -101,7 +101,7 @@ export default {
     },
     async delCategory(value) {
       console.log(value);
-      let res = await axios.get('/apis/foods/delCategory',{
+      let res = await axios.get('/apis/apis/foods/delCategory',{
           params:{
               id:value
           }

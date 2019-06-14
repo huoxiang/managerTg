@@ -44,7 +44,7 @@ export default {
      methods: {
        async selectHead(value){
            console.log(value)
-           let res = await axios.get('/apis/order/headerOrder',{
+           let res = await axios.get('/apis/apis/order/headerOrder',{
              params:{
                headId:value
              }
@@ -111,7 +111,7 @@ export default {
            this.foodsList =newarr
        },
         getHeadList(){
-            axios.get('/apis/head/allsHead').then(res=>{
+            axios.get('/apis/apis/head/allsHead').then(res=>{
               console.log(res.data.data)
               this.headList=res.data.data
             })
@@ -119,7 +119,7 @@ export default {
         getOrderList(){
           //获取团长订单
           //先获取前十条
-          axios.get('/apis/head/orderList',{
+          axios.get('/apis/apis/head/orderList',{
             params:{
               start:0
             }
