@@ -160,7 +160,7 @@ export default {
   },
   methods: {
     async setFoods() {
-      let res = await axios.get("/apis/foods/getFoodsDetail", {
+      let res = await axios.get("/foods/getFoodsDetail", {
         params: {
           id: this.$route.query.id
         }
@@ -191,7 +191,7 @@ export default {
     },
     async getCategory() {
       //获得商品分类数据
-      let res = await axios.get("/apis/foods/getCategory");
+      let res = await axios.get("/foods/getCategory");
       console.log(res);
       const {
         status,
@@ -243,7 +243,7 @@ export default {
       else{
          upimgList = this.uploadImgList
       }
-      let data = await axios.get("/apis/foods/editFoods", {
+      let data = await axios.get("/foods/editFoods", {
         params: {
           foodsid: this.foodsid,
           foodsName: this.foodsName,
@@ -411,7 +411,8 @@ export default {
         //设置过期时间
         //生成url
         console.log(clinet.signatureUrl(res.name, { expires: 315360000 }));
-        Editor.insertEmbed(cursorLocation, "image");
+        var imgstr = clinet.signatureUrl(res.name, { expires: 315360000 })
+        Editor.insertEmbed(cursorLocation, "img", imgstr);
       });
     }
   }

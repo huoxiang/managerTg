@@ -24,14 +24,14 @@ export default {
   methods: {
     async setButton(value) {
       if (value == 0) {
-        let ares = await axios.post("/apis/setCom/set");
+        let ares = await axios.post("/setCom/set");
         if(ares){
             console.log('初始化')
         }
       }
       if (value == 1) {
         
-        let res = await axios.post("/apis/setCom/set", {
+        let res = await axios.post("/setCom/set", {
            setNum: this.setNum
         });
         const {
@@ -47,7 +47,7 @@ export default {
       }
     },
     async getNum(){
-        let res = await axios.get('/apis/apis/setCom/getNum')
+        let res = await axios.get("/setCom/getNum")
         const {status,data:{data}} = res
         this.setNum = data
     }

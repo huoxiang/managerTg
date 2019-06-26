@@ -41,7 +41,7 @@ export default {
      },
      methods: {
        async login(){ 
-           let res = await axios.post('/apis/user/signup',{
+           let res = await axios.post('/user/signup',{
              user:this.user,
              password:this.password
            })

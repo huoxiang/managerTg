@@ -35,7 +35,7 @@ export default {
       },
       methods: {
           async getStatusDHead(){
-              let res  = await axios.get('/apis/apis/head/allHead')
+              let res  = await axios.get("/head/allHead")
               console.log(res)
               const {status,data:{data}} = res
               console.log(data)
@@ -43,7 +43,7 @@ export default {
           },
          async apply(value){
               console.log(value)
-             let res = await axios.get('/apis/apis/head/examineHead',{
+             let res = await axios.get("/head/examineHead",{
                  params:{
                      status:2,
                      openid:value

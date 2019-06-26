@@ -162,7 +162,7 @@ export default {
   methods: {
     async getCategory() {
       //获得商品分类数据
-      let res = await axios.get("/apis/foods/getCategory");
+      let res = await axios.get("/foods/getCategory");
       console.log(res);
       const {
         status,
@@ -206,7 +206,7 @@ export default {
       }
       //富文本内容和对比价格可以为空
       //通过验证进行下一步提交到后端保存
-      let data = await axios.get('/apis/apis/foods/addFoods',{
+      let data = await axios.get("/foods/addFoods",{
         params:{
           foodsid:this.foodsid,
           foodsName:this.foodsName,
@@ -358,9 +358,11 @@ export default {
         //设置过期时间
         //生成url
         console.log( clinet.signatureUrl(res.name,{expires: 315360000}));
+        var imgstr = clinet.signatureUrl(res.name,{expires: 315360000})
         Editor.insertEmbed(
           cursorLocation,
           "image",
+          imgstr 
          
         );
       });

@@ -68,7 +68,7 @@ export default {
     async searchProduct() {
       console.log("搜索");
       if (this.searchName == "") return false;
-      let res = await axios.get("/apis/foods/searchFoods", {
+      let res = await axios.get("/foods/searchFoods", {
         params: {
           keyWord: this.searchName
         }
@@ -88,7 +88,7 @@ export default {
     },
     async getCategory() {
       //获得商品分类数据
-      let res = await axios.get("/apis/foods/getCategory");
+      let res = await axios.get("/foods/getCategory");
       console.log(res);
       const {
         status,
@@ -100,7 +100,7 @@ export default {
       }
     },
     async getFoodsList() {
-      let result = await axios.get("/apis/foods/getupFoodlist", {
+      let result = await axios.get("/foods/getupFoodlist", {
         params: {
           start: this.start
         }
@@ -116,7 +116,7 @@ export default {
     },
     async up(value) {
       console.log(value);
-      let res = await axios.post("/apis/foods/upFoods", {
+      let res = await axios.post("/foods/upFoods", {
         data: this.foodsList[value]
       });
       console.log(res);
@@ -139,7 +139,7 @@ export default {
       console.log("分类值发生改变");
       //发送个后端接口,并返回所得到的分类所属内容，此内容不进行分页处理
       axios
-        .get("/apis/foods/categoryFoods", {
+        .get("/foods/categoryFoods", {
           params: {
             couponSelected: this.couponSelected
           }
