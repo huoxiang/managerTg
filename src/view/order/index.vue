@@ -20,21 +20,25 @@
         该次团购所需的配货信息
         <ul>
           <li v-for="(item, index) in  foodsList" :key="index">
-            <span>{{item.name}}</span><span>{{item.num}}</span>
+            <span>{{item.name}}</span>:<span>{{item.num}}</span>
           </li>
         </ul>
+        <button @click="exportOrder">导出订单</button>
+   
       </div>
   </div>
 </template>
 <script>
-import axios from '../../../utils/axios'
+import axios from 'axios'
 export default {
      data () {
        return {
          headList:[],
          orderlist:[],
          pageNum:0,
-         foodsList:[]
+         foodsList:[],
+         openId:'',
+     
        }
      },
      mounted(){
@@ -44,26 +48,26 @@ export default {
      methods: {
        async selectHead(value){
            console.log(value)
+           this.openId=value
            let res = await axios.get("/order/headerOrder",{
              params:{
                headId:value
              }
            })
            console.log(res.data.data)
-    
-             let arr = res.data.data.map(item=>{
-              return {
-                headId:item.headId,
-                money:item.money,
-                openId:item.openId,
-                orderId:item.orderId,
-                shops:item.shops,
-                orderStatus:item.orderStatus,
-                time:this.getLocalTime(item.time)
-              }
-            })
-           this.orderlist=arr
-           this.Analysis()
+            //  let arr = res.data.data.map(item=>{
+            //   return {
+            //     headId:item.headId,
+            //     money:item.money,
+            //     openId:item.openId,
+            //     orderId:item.orderId,
+            //     shops:item.shops,
+            //     orderStatus:item.orderStatus,
+            //     time:this.getLocalTime(item.time)
+            //   }
+            // })
+          //  this.orderlist=arr
+          //  this.Analysis()
            //点击后筛选出来当前团长
        },
         Analysis(){
@@ -145,8 +149,20 @@ export default {
       getLocalTime(nS) {    
         //传入时间戳返回时间转换格式 
          return new Date(parseInt(nS)).toLocaleString().replace(/:\d{1,2}$/,' ');     
+      },
+    async exportOrder(){
+        if( this.openId==''){
+          this.$message('请选择团长再导出订单')
+         }
+       const res =  await axios.get('/head/exportExcel',{
+          params:{
+            openid:this.openId
+          }
+        })
+      
+        window.open('http://localhost:8080/head/download?name='+res.data.path)
       }
-     }
+    }
 }
 </script>
 <style lang='scss'>

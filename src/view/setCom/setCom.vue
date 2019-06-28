@@ -1,11 +1,10 @@
 <template>
   <div>
     <p class="title">修改佣金比例</p>
-
     <p>
       <input type="text" placeholder="请输入佣金比例" v-model="setNum">
     </p>
-    <button @click="setButton(1)">修改佣金比例</button>
+    <button  @click="setButton(1)">修改佣金比例</button>
   </div>
 </template>
 <script>
@@ -55,4 +54,14 @@ export default {
 };
 </script>
 <style lang='scss'>
+button{
+   background: red;
+   color: white;
+   border-radius: 15px;
+   text-align: center;
+   width: 220px;
+   height: 35px;
+   line-height: 35px;
+   border: none;
+}
 </style>

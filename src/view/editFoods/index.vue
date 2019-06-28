@@ -172,9 +172,9 @@ export default {
       console.log(res, "商品数据");
       console.log(this.categoryArry, "分类123");
       if (status == 200) {
-        this.foodsName = data.foodsName;
+       this.foodsName = data.foodsName;
         (this.Specifications = data.foodsdescribe),
-          (this.foodsid = data.foodsid);
+        (this.foodsid = data.foodsid);
         this.couponSelected = data.couponSelected;
         this.number = data.number;
         this.price = data.foodsPrice;
@@ -259,14 +259,11 @@ export default {
   
       // console.log(code)
       if(data.status == 200){
-      
+    
         this.$message(`编辑商品成功`)
         this.$router.push({path:'/listFoods'})
       }
-          
       // }
-    
-     
     },
     getName() {
       const client = new OSS({
